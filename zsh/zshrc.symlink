@@ -1,0 +1,84 @@
+# shortcut to this dotfiles path is $ZSH
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES
+export PROJECTS=~/dev
+export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:/Users/zmchenry/.npm/bin
+export PATH=$PATH:/Users/zmchenry/npm
+export PATH=$PATH:/usr/local/Cellar/node/0.12.0/libexec/npm/bin
+
+
+source $DOTFILES/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle sudo
+antigen bundle cp
+antigen bundle gitignore
+antigen bundle node
+antigen bundle npm
+antigen bundle mvn
+antigen bundle grunt
+antigen bundle jira
+antigen bundle github
+antigen bundle git-flow
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+antigen bundle kennethreitz/autoenv
+antigen bundle bgnotify
+antigen bundle skx/sysadmin-util
+antigen bundle common-aliases
+
+# Tracks your most used directories, based on 'frecency'. And its accompanying
+# setup code.
+antigen bundle rupa/z
+add-zsh-hook precmd _z_precmd
+function _z_precmd {
+    _z --add "$PWD"
+}
+
+#antigen theme juanghurtado
+#antigen theme ys
+#my own custom theme
+antigen theme $DOTFILES/zsh/themes custom
+antigen apply
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTFILES/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# load everything but the path and completion files and ignore antigen zsh files
+for file in ${${${config_files:#*/path.zsh}:#*/completion.zsh}#**/antigen/**/*.zsh}
+do
+  source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+#remove any duplicates in our path
+typeset -U PATH

@@ -53,12 +53,10 @@ There's a few special files in the hierarchy.
   symlinked in when you run `script/bootstrap`.
 
 ## notable differences from holmans
-1. Added a QBO topic
-2. Added [Antigen](https://github.com/zsh-users/antigen) support. See the .zshrc file for current uses.
-3. Removed various topics (ruby, go etc)
-4. Custom `rbqbo.sh` script in `bin/`. Remove or alter to your needs.
+1. Added [Antigen](https://github.com/zsh-users/antigen) support. See the .zshrc file for current uses.
+2. Removed various topics (ruby, go etc)
 
 ## thanks
 
 I forked [Zach Holman](http://github.com/holman)' excellent
-[dotfiles](http://github.com/holman/dotfiles) and simply modified it to suit my needs (with some Intuit QBO Support).
+[dotfiles](http://github.com/holman/dotfiles) and simply modified it to suit my needs.

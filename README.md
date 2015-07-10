@@ -24,10 +24,6 @@ files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
 
-### qbo
-
-I have a qbo topic to handle some QBO specific aliases, logic and variables. Please adjust as needed.
-
 ## what's inside
 
 A lot of stuff. Check them out in the file browser

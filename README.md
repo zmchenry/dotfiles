@@ -1,11 +1,11 @@
-# Kyle's Dotfiles
+# Zach's Dot Files
 
 ## install
 
 Run this:
 
 ```sh
-git clone https://github.intuit.com/kbrown12/dotfiles.git ~/.dotfiles
+git clone https://github.intuit.com/zmchenry/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```

@@ -31,9 +31,10 @@ color_green = '%{[32m%}'
 color_yellow = '%{[33m%}'
 color_red = '%{[31m%}'
 color_reset = '%{[00m%}'
+third_of_slots = total_slots/3
 color_out = (
-    color_green if len(filled) > 6
-    else color_yellow if len(filled) > 4
+    color_green if len(filled) > third_of_slots * 2
+    else color_yellow if len(filled) > third_of_slots
     else color_red
 )
 

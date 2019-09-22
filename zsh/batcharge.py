@@ -19,7 +19,7 @@ charge_threshold = int(math.ceil(10 * charge))
 
 # Output
 
-total_slots, slots = 5, []
+total_slots, slots = 10, []
 filled = int(math.ceil(charge_threshold * (total_slots / 10.0))) * u'■'
 # old arrow: ▹▸▶
 empty = (total_slots - len(filled)) * u'◻'
